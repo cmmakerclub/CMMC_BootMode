@@ -31,8 +31,8 @@ class CMMC_BootMode
       }
 
       CMMC_BootMode(int *mode, int button_pin = 0) {
-        _target_mode = mode;
-        _button_pin = 0;
+        this->_target_mode = mode;
+        this->_button_pin = button_pin;
         CMMC_BootMode();
       }
 

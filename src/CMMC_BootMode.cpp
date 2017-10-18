@@ -4,11 +4,11 @@ void CMMC_BootMode::init() {
   pinMode(this->_button_pin, INPUT_PULLUP);
 }
 
-void CMMC_BootMode::check(cmmc_boot_mode_cb_t cb) {
-  delay(1000);
+void CMMC_BootMode::check(cmmc_boot_mode_cb_t cb, uint32_t wait) {
+  delay(wait);
   if (cb != NULL) this->_user_boot_mode_cb = cb;
 
-  if (digitalRead(this->_button_pin) == 0) {
+  if (digitalRead(this->_button_pin) == LOW) {
     *_target_mode  = MODE_CONFIG;
   }
   else {

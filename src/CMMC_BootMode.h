@@ -39,7 +39,7 @@ class CMMC_BootMode
       ~CMMC_BootMode() {}
 
       void init();
-      void check(cmmc_boot_mode_cb_t mode = NULL);
+      void check(cmmc_boot_mode_cb_t mode = NULL, uint32_t wait = 2000);
       void debug(cmmc_debug_cb_t);
     private:
       cmmc_debug_cb_t _user_debug_cb;

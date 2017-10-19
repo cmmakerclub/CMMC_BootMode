@@ -16,5 +16,10 @@ Usage
 
     CMMC_BootMode bootMode(&mode, BUTTON_PIN);
     bootMode.check([](int mode) {
-      // 
+        if (mode == BootMode::MODE_CONFIG) {
+            // do config_mode
+        }
+        else if (mode == BootMode::MODE_RUN) {
+            // do config_mode
+        }
     });

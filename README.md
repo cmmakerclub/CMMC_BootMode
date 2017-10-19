@@ -11,10 +11,10 @@ Features
 Usage
 --------
 
-  int mode;
-  int BUTTON_PIN = 0;
-  
-  CMMC_BootMode bootMode(&mode, BUTTON_PIN);
-  bootMode.check([](int mode) {
-    // 
-  });
+    int mode;
+    int BUTTON_PIN = 0;
+
+    CMMC_BootMode bootMode(&mode, BUTTON_PIN);
+    bootMode.check([](int mode) {
+      // 
+    });

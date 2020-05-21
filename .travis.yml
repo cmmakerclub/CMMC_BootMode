@@ -74,12 +74,10 @@ env:
     # - PLATFORMIO_CI_SRC=examples/basic_mqtt
     # - PLATFORMIO_CI_SRC=examples/basic_dht
 install: 
-    # - wget https://github.com/adafruit/Adafruit_Sensor/archive/master.zip -O /tmp/adafruit_sensor.zip
-    # - unzip /tmp/adafruit_sensor.zip -d /tmp
     - pip install -U platformio
     # - platformio lib -g install 31 166 19 31
 script:
     - mkdir /tmp/build
-    - platformio ci --build-dir="/tmp/build" --keep-build-dir --lib="." --board=espresso_lite_v2
+    - platformio ci --build-dir="/tmp/build" --keep-build-dir --lib="." --board=espresso_lite_v2 -e firmware
     - find /tmp/build/.pio/build/ | grep bin$
     # - platformio ci --project-option="lib_ldf_mode=2" --lib="." --board=nano32

@@ -79,6 +79,6 @@ install:
 script:
     - mkdir /tmp/build
     - platformio ci --build-dir="/tmp/build" --keep-build-dir --lib="." --board=espresso_lite_v2 
-    - platformio run -d src -e firmware
+    - platformio run -d "." -e firmware
     - find /tmp/build/.pio/build/ | grep bin$
     # - platformio ci --project-option="lib_ldf_mode=2" --lib="." --board=nano32

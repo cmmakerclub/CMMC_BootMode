@@ -18,6 +18,11 @@
 typedef void (*cmmc_debug_cb_t)(const char* message);
 typedef void (*cmmc_boot_mode_cb_t)(int mode);
 
+typedef struct {
+  uint32_t crc32;
+  byte data[508];
+} rtcData;
+
 class CMMC_BootMode
 {
     public:
@@ -41,11 +46,15 @@ class CMMC_BootMode
       void init();
       void check(cmmc_boot_mode_cb_t mode = NULL, uint32_t wait = 2000);
       void debug(cmmc_debug_cb_t);
+      uint32_t calculateCRC32(const uint8_t *data, size_t length);
+      void printMemory();
     private:
       cmmc_debug_cb_t _user_debug_cb;
       cmmc_boot_mode_cb_t _user_boot_mode_cb;
       int *_target_mode = NULL;
       int _button_pin = 0;
+      rtcData x;
+
 };
 
 #endif //CMMC_BootMode_H
